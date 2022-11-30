@@ -22,7 +22,7 @@ Cymbalta <- read.csv("Cymbalta.csv", sep = ',')
 #easier to let ggplot2 control plotting (color, fill) based on type
 data(Cymbalta)
 uvals<-sapply(Cymbalta,function(x){length(unique(x))})
-mtcars<-map_if(Cymbalta,uvals<4,as.factor) %>%
+Cymbalta<-map_if(Cymbalta,uvals<4,as.factor) %>%
   as.data.frame()
 
 
