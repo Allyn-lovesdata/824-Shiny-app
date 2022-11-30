@@ -22,7 +22,7 @@ Cymbalta <- read.csv("Cymbalta.csv", sep = ',')
 #easier to let ggplot2 control plotting (color, fill) based on type
 data(Cymbalta)
 uvals<-sapply(Cymbalta,function(x){length(unique(x))})
-Cymbalta<-map_if(Cymbalta,uvals<4,as.factor) %>%
+Cymbalta<-map_if(Cymbalta,uvals<90,as.factor) %>%
   as.data.frame()
 
 
@@ -176,8 +176,8 @@ server<-(function(input, output, session){
                 aes_string(
                   x 		= plot.obj$variable,
                   fill 	= plot.obj$group,
-                  group 	= plot.obj$group
-                  #color 	= as.factor(plot.obj$group)
+                  group 	= plot.obj$group,
+                  color 	= as.factor(plot.obj$group)
                 )
       ) + plot.type
     }
