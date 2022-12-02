@@ -69,7 +69,7 @@ ui<-(pageWithSidebar(
     selectInput("variable","Variable:", choices = NULL),
     selectInput("group","Group:", choices = NULL),
     selectInput("plot.type","Plot Type:",
-                list(boxplot = "boxplot", histogram = "histogram", density = "density", bar = "bar")
+                list(boxplot = "boxplot", line = "line", histogram = "histogram", density = "density", bar = "bar")
     ),
     checkboxInput("show.points", "show points", TRUE)
   ),
@@ -99,6 +99,7 @@ server<-(function(input, output, session){
   output$caption<-renderText({
     switch(input$plot.type,
            "boxplot" 	= 	"Boxplot",
+           "line" = "Line", 
            "histogram" =	"Histogram",
            "density" 	=	"Density plot",
            "bar" 		=	"Bar graph")
